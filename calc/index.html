@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    Value 1: <input type="number" id="val1">
+    Value 2: <input type="number" id="val2">
+    <br>
+    <button onclick="performOperation('add')">Add</button>
+    <button onclick="performOperation('multiply')">Multiply</button>
+    <button onclick="performOperation('subtract')">Subtract</button>
+    <button onclick="performOperation('divide')">Divide</button>
+    <br>
+    Result: <input type="text" id="result" disabled>
+
+    <script>
+        function performOperation(operation) {
+            var val1 = parseFloat(document.getElementById("val1").value);
+            var val2 = parseFloat(document.getElementById("val2").value);
+
+            switch (operation) {
+                case 'add':
+                    document.getElementById("result").value = val1 + val2;
+                    break;
+                case 'multiply':
+                    document.getElementById("result").value = val1 * val2;
+                    break;
+                case 'subtract':
+                    document.getElementById("result").value = val1 - val2;
+                    break;
+                case 'divide':
+                    if (val2 == 0) {
+                        document.getElementById("result").value = "Cannot divide by zero";
+                    } else {
+                        document.getElementById("result").value = val1 / val2;
+                    }
+                    break;
+                default:
+                    document.getElementById("result").value = "Invalid operation";
+            }
+        }
+    </script>
+</body>
+</html>
+
